@@ -1,0 +1,17 @@
+{
+  "name": "api-bdd-example",
+  "version": "1.0.0",
+  "description": "Example Cucumber.js + Axios harness for REST API checks",
+  "scripts": {
+    "test": "cucumber-js",
+    "test:auth": "cucumber-js --tags @auth",
+    "test:env": "bash scripts/test-env.sh"
+  },
+  "devDependencies": {
+    "@cucumber/cucumber": "^12.8.1"
+  },
+  "dependencies": {
+    "axios": "^1.15.0",
+    "dotenv": "^17.4.2"
+  }
+}
