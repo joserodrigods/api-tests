@@ -216,6 +216,23 @@ function createClient() {
         params: { name },
       });
     },
+
+    async deleteCard(cardId) {
+      if (!cardId) {
+        throw new Error('Card id is required');
+      }
+      const { key, token } = getAuthParams();
+      return http.delete(`/cards/${cardId}`, {
+        params: { key, token },
+      });
+    },
+
+    async deleteCardWithoutAuth(cardId) {
+      if (!cardId) {
+        throw new Error('Card id is required');
+      }
+      return http.delete(`/cards/${cardId}`);
+    },
   };
 }
 

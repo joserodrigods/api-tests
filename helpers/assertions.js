@@ -60,6 +60,11 @@ function assertCardClosedTrue(data) {
   assert.strictEqual(data.closed, true, 'card closed is not true');
 }
 
+function assertDeleteCardConfirmation(data) {
+  assert.ok(data && typeof data === 'object', 'response body must be an object');
+  assert.ok(Object.prototype.hasOwnProperty.call(data, 'limits'), 'delete response should include limits');
+}
+
 module.exports = {
   assertMemberId,
   assertBoardId,
@@ -73,4 +78,5 @@ module.exports = {
   assertCardHasMember,
   assertCardPositionIsNumeric,
   assertCardClosedTrue,
+  assertDeleteCardConfirmation,
 };
