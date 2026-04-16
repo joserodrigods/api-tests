@@ -1,0 +1,554 @@
+[
+  {
+    "description": "  Validar que as credenciais permitem chamadas bem-sucedidas aos endpoints usados por este projeto.",
+    "elements": [
+      {
+        "description": "",
+        "id": "autenticacao-para-a-api-http-configurada;credenciais-validas-retornam-o-membro-autenticado",
+        "keyword": "Scenario",
+        "line": 8,
+        "name": "credenciais validas retornam o membro autenticado",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 6,
+            "name": "que as credenciais estao configuradas no ambiente",
+            "match": {
+              "location": "step_definitions/auth.steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1274026
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 9,
+            "name": "eu solicitar o membro autenticado da API",
+            "match": {
+              "location": "step_definitions/auth.steps.js:14"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 240149964
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 10,
+            "name": "o status da resposta deve ser HTTP 200",
+            "match": {
+              "location": "step_definitions/auth.steps.js:30"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 211307
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 11,
+            "name": "o corpo deve conter o identificador do membro",
+            "match": {
+              "location": "step_definitions/auth.steps.js:34"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 126679
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "autenticacao-para-a-api-http-configurada;credenciais-validas-permitem-acesso-ao-quadro-configurado",
+        "keyword": "Scenario",
+        "line": 13,
+        "name": "credenciais validas permitem acesso ao quadro configurado",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 6,
+            "name": "que as credenciais estao configuradas no ambiente",
+            "match": {
+              "location": "step_definitions/auth.steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 176357
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 14,
+            "name": "eu solicitar o quadro configurado no ambiente",
+            "match": {
+              "location": "step_definitions/auth.steps.js:18"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 197197289
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 15,
+            "name": "o status da resposta deve ser HTTP 200",
+            "match": {
+              "location": "step_definitions/auth.steps.js:30"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 136798
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 16,
+            "name": "o corpo deve conter o identificador do quadro",
+            "match": {
+              "location": "step_definitions/auth.steps.js:38"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 113268
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "autenticacao-para-a-api-http-configurada;autenticacao-falha-sem-api-key",
+        "keyword": "Scenario",
+        "line": 18,
+        "name": "autenticacao falha sem API key",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 6,
+            "name": "que as credenciais estao configuradas no ambiente",
+            "match": {
+              "location": "step_definitions/auth.steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 147697
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 19,
+            "name": "eu solicitar o membro autenticado sem API key",
+            "match": {
+              "location": "step_definitions/auth.steps.js:22"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 148402214
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 20,
+            "name": "o status da resposta deve ser HTTP 401",
+            "match": {
+              "location": "step_definitions/auth.steps.js:30"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 157538
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 21,
+            "name": "o corpo deve conter mensagem de erro de autenticacao",
+            "match": {
+              "location": "step_definitions/auth.steps.js:42"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 129698
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "autenticacao-para-a-api-http-configurada;autenticacao-falha-com-token-invalido",
+        "keyword": "Scenario",
+        "line": 23,
+        "name": "autenticacao falha com token invalido",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 6,
+            "name": "que as credenciais estao configuradas no ambiente",
+            "match": {
+              "location": "step_definitions/auth.steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 156819
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 24,
+            "name": "eu solicitar o membro autenticado com token invalido",
+            "match": {
+              "location": "step_definitions/auth.steps.js:26"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 151580512
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 25,
+            "name": "o status da resposta deve ser HTTP 401",
+            "match": {
+              "location": "step_definitions/auth.steps.js:30"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 93359
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 26,
+            "name": "o corpo deve conter mensagem de erro de autenticacao",
+            "match": {
+              "location": "step_definitions/auth.steps.js:42"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 44730
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "autenticacao-para-a-api-http-configurada",
+    "line": 2,
+    "keyword": "Feature",
+    "name": "Autenticacao para a API HTTP configurada",
+    "tags": [],
+    "uri": "features/01_authentication.feature"
+  },
+  {
+    "description": "  Validar que a API consegue criar cards na lista usada por este projeto.",
+    "elements": [
+      {
+        "description": "",
+        "id": "criar-card-no-quadro-configurado;criar-um-card-com-nome-e-id-da-lista-validos",
+        "keyword": "Scenario",
+        "line": 9,
+        "name": "criar um card com nome e id da lista validos",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 6,
+            "name": "que as credenciais estao configuradas no ambiente",
+            "match": {
+              "location": "step_definitions/auth.steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 113469
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 7,
+            "name": "que a lista de tarefas esta configurada no ambiente",
+            "match": {
+              "location": "step_definitions/card.steps.js:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 72809
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 10,
+            "name": "eu criar um card chamado \"Card de Teste - Automacao QA\" na lista de tarefas configurada no ambiente",
+            "match": {
+              "location": "step_definitions/card.steps.js:9"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 453918516
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 11,
+            "name": "o status da resposta deve ser HTTP 200",
+            "match": {
+              "location": "step_definitions/auth.steps.js:30"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 74519
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 12,
+            "name": "o corpo da resposta deve conter um identificador de card",
+            "match": {
+              "location": "step_definitions/card.steps.js:25"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 85079
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "criar-card-no-quadro-configurado;criar-um-card-sem-nome",
+        "keyword": "Scenario",
+        "line": 14,
+        "name": "criar um card sem nome",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 6,
+            "name": "que as credenciais estao configuradas no ambiente",
+            "match": {
+              "location": "step_definitions/auth.steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 167928
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 7,
+            "name": "que a lista de tarefas esta configurada no ambiente",
+            "match": {
+              "location": "step_definitions/card.steps.js:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 57929
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 15,
+            "name": "eu criar um card sem nome na lista de tarefas configurada no ambiente",
+            "match": {
+              "location": "step_definitions/card.steps.js:13"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 399760855
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 16,
+            "name": "o status da resposta deve ser HTTP 200",
+            "match": {
+              "location": "step_definitions/auth.steps.js:30"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 78389
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 17,
+            "name": "o corpo da resposta deve conter um identificador de card",
+            "match": {
+              "location": "step_definitions/card.steps.js:25"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 169997
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "criar-card-no-quadro-configurado;criar-um-card-falha-quando-o-id-da-lista-nao-existe",
+        "keyword": "Scenario",
+        "line": 19,
+        "name": "criar um card falha quando o id da lista nao existe",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 6,
+            "name": "que as credenciais estao configuradas no ambiente",
+            "match": {
+              "location": "step_definitions/auth.steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 133959
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 7,
+            "name": "que a lista de tarefas esta configurada no ambiente",
+            "match": {
+              "location": "step_definitions/card.steps.js:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 36599
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 20,
+            "name": "eu tentar criar um card chamado \"Card Teste\" no id de lista \"lista-que-nao-existe-123\"",
+            "match": {
+              "location": "step_definitions/card.steps.js:17"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 164247812
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 21,
+            "name": "o status da resposta deve ser HTTP 400",
+            "match": {
+              "location": "step_definitions/auth.steps.js:30"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 83438
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "criar-card-no-quadro-configurado;criar-um-card-sem-autenticacao",
+        "keyword": "Scenario",
+        "line": 23,
+        "name": "criar um card sem autenticacao",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 6,
+            "name": "que as credenciais estao configuradas no ambiente",
+            "match": {
+              "location": "step_definitions/auth.steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 126218
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 7,
+            "name": "que a lista de tarefas esta configurada no ambiente",
+            "match": {
+              "location": "step_definitions/card.steps.js:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 42619
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 24,
+            "name": "eu tentar criar um card sem autenticacao",
+            "match": {
+              "location": "step_definitions/card.steps.js:21"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 159201386
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 25,
+            "name": "o status da resposta deve ser HTTP 401",
+            "match": {
+              "location": "step_definitions/auth.steps.js:30"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 74978
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "criar-card-no-quadro-configurado",
+    "line": 2,
+    "keyword": "Feature",
+    "name": "Criar card no quadro configurado",
+    "tags": [],
+    "uri": "features/02_create_card.feature"
+  }
+]

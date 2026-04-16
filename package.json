@@ -4,11 +4,15 @@
   "description": "Example Cucumber.js + Axios harness for REST API checks",
   "scripts": {
     "test": "cucumber-js",
+    "test:json": "cucumber-js --format json:results/cucumber-report.json",
+    "report:html": "node scripts/generate-report.js",
+    "test:report": "mkdir -p results && npm run test:json && npm run report:html",
     "test:auth": "cucumber-js --tags @auth",
     "test:env": "bash scripts/test-env.sh"
   },
   "devDependencies": {
-    "@cucumber/cucumber": "^12.8.1"
+    "@cucumber/cucumber": "^12.8.1",
+    "cucumber-html-reporter": "^7.2.0"
   },
   "dependencies": {
     "axios": "^1.15.0",
