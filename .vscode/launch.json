@@ -21,13 +21,12 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Cucumber: @auth",
+      "name": "Cucumber: authentication feature",
       "program": "${workspaceFolder}/node_modules/@cucumber/cucumber/bin/cucumber.js",
       "args": [
         "--config",
         "cucumber.js",
-        "--tags",
-        "@auth"
+        "features/01_authentication.feature"
       ],
       "cwd": "${workspaceFolder}",
       "envFile": "${workspaceFolder}/.env",
@@ -40,12 +39,12 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Cucumber: auth scenario 1",
+      "name": "Cucumber: create card feature",
       "program": "${workspaceFolder}/node_modules/@cucumber/cucumber/bin/cucumber.js",
       "args": [
         "--config",
         "cucumber.js",
-        "features/01_authentication.feature:10"
+        "features/02_create_card.feature"
       ],
       "cwd": "${workspaceFolder}",
       "envFile": "${workspaceFolder}/.env",
@@ -58,12 +57,138 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Cucumber: auth scenario 2",
+      "name": "Cucumber: auth scenario - valid member",
       "program": "${workspaceFolder}/node_modules/@cucumber/cucumber/bin/cucumber.js",
       "args": [
         "--config",
         "cucumber.js",
-        "features/01_authentication.feature:15"
+        "features/01_authentication.feature:9"
+      ],
+      "cwd": "${workspaceFolder}",
+      "envFile": "${workspaceFolder}/.env",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Cucumber: auth scenario - valid board",
+      "program": "${workspaceFolder}/node_modules/@cucumber/cucumber/bin/cucumber.js",
+      "args": [
+        "--config",
+        "cucumber.js",
+        "features/01_authentication.feature:14"
+      ],
+      "cwd": "${workspaceFolder}",
+      "envFile": "${workspaceFolder}/.env",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Cucumber: auth scenario - missing api key",
+      "program": "${workspaceFolder}/node_modules/@cucumber/cucumber/bin/cucumber.js",
+      "args": [
+        "--config",
+        "cucumber.js",
+        "features/01_authentication.feature:19"
+      ],
+      "cwd": "${workspaceFolder}",
+      "envFile": "${workspaceFolder}/.env",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Cucumber: auth scenario - invalid token",
+      "program": "${workspaceFolder}/node_modules/@cucumber/cucumber/bin/cucumber.js",
+      "args": [
+        "--config",
+        "cucumber.js",
+        "features/01_authentication.feature:24"
+      ],
+      "cwd": "${workspaceFolder}",
+      "envFile": "${workspaceFolder}/.env",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Cucumber: create card scenario - valid data",
+      "program": "${workspaceFolder}/node_modules/@cucumber/cucumber/bin/cucumber.js",
+      "args": [
+        "--config",
+        "cucumber.js",
+        "features/02_create_card.feature:10"
+      ],
+      "cwd": "${workspaceFolder}",
+      "envFile": "${workspaceFolder}/.env",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Cucumber: create card scenario - without name",
+      "program": "${workspaceFolder}/node_modules/@cucumber/cucumber/bin/cucumber.js",
+      "args": [
+        "--config",
+        "cucumber.js",
+        "features/02_create_card.feature:15"
+      ],
+      "cwd": "${workspaceFolder}",
+      "envFile": "${workspaceFolder}/.env",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Cucumber: create card scenario - invalid list id",
+      "program": "${workspaceFolder}/node_modules/@cucumber/cucumber/bin/cucumber.js",
+      "args": [
+        "--config",
+        "cucumber.js",
+        "features/02_create_card.feature:20"
+      ],
+      "cwd": "${workspaceFolder}",
+      "envFile": "${workspaceFolder}/.env",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Cucumber: create card scenario - without auth",
+      "program": "${workspaceFolder}/node_modules/@cucumber/cucumber/bin/cucumber.js",
+      "args": [
+        "--config",
+        "cucumber.js",
+        "features/02_create_card.feature:24"
       ],
       "cwd": "${workspaceFolder}",
       "envFile": "${workspaceFolder}/.env",
