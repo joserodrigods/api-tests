@@ -1,0 +1,77 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Cucumber: All features",
+      "program": "${workspaceFolder}/node_modules/@cucumber/cucumber/bin/cucumber.js",
+      "args": [
+        "--config",
+        "cucumber.js"
+      ],
+      "cwd": "${workspaceFolder}",
+      "envFile": "${workspaceFolder}/.env",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Cucumber: @auth",
+      "program": "${workspaceFolder}/node_modules/@cucumber/cucumber/bin/cucumber.js",
+      "args": [
+        "--config",
+        "cucumber.js",
+        "--tags",
+        "@auth"
+      ],
+      "cwd": "${workspaceFolder}",
+      "envFile": "${workspaceFolder}/.env",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Cucumber: auth scenario 1",
+      "program": "${workspaceFolder}/node_modules/@cucumber/cucumber/bin/cucumber.js",
+      "args": [
+        "--config",
+        "cucumber.js",
+        "features/01_authentication.feature:10"
+      ],
+      "cwd": "${workspaceFolder}",
+      "envFile": "${workspaceFolder}/.env",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Cucumber: auth scenario 2",
+      "program": "${workspaceFolder}/node_modules/@cucumber/cucumber/bin/cucumber.js",
+      "args": [
+        "--config",
+        "cucumber.js",
+        "features/01_authentication.feature:15"
+      ],
+      "cwd": "${workspaceFolder}",
+      "envFile": "${workspaceFolder}/.env",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
+    }
+  ]
+}
