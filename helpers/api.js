@@ -108,8 +108,34 @@ function createClient() {
         params: {
           key,
           token,
-          fields: 'id,name,desc,due,dueComplete,closed,pos,idLabels,idMembers',
+          fields: 'id,name,desc,due,dueComplete,closed,pos,idLabels,idMembers,idList,idBoard,dateLastActivity',
         },
+      });
+    },
+
+    async moveCardToList(cardId, listId) {
+      if (!cardId) {
+        throw new Error('Card id is required');
+      }
+      if (!listId) {
+        throw new Error('List id is required');
+      }
+      const { key, token } = getAuthParams();
+      return http.put(`/cards/${cardId}`, { idList: listId }, {
+        params: { key, token },
+        headers: { 'Content-Type': 'application/json' },
+      });
+    },
+
+    async moveCardToListWithoutAuth(cardId, listId) {
+      if (!cardId) {
+        throw new Error('Card id is required');
+      }
+      if (!listId) {
+        throw new Error('List id is required');
+      }
+      return http.put(`/cards/${cardId}`, { idList: listId }, {
+        headers: { 'Content-Type': 'application/json' },
       });
     },
 

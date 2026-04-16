@@ -65,6 +65,21 @@ function assertDeleteCardConfirmation(data) {
   assert.ok(Object.prototype.hasOwnProperty.call(data, 'limits'), 'delete response should include limits');
 }
 
+function assertCardListId(data, expectedListId) {
+  assert.ok(data, 'response body is empty');
+  assert.strictEqual(data.idList, expectedListId, 'card idList mismatch');
+}
+
+function assertCardBoardId(data, expectedBoardId) {
+  assert.ok(data, 'response body is empty');
+  assert.strictEqual(data.idBoard, expectedBoardId, 'card idBoard mismatch');
+}
+
+function assertDateLastActivityPresent(data) {
+  assert.ok(data, 'response body is empty');
+  assert.ok(data.dateLastActivity, 'dateLastActivity is missing');
+}
+
 module.exports = {
   assertMemberId,
   assertBoardId,
@@ -79,4 +94,7 @@ module.exports = {
   assertCardPositionIsNumeric,
   assertCardClosedTrue,
   assertDeleteCardConfirmation,
+  assertCardListId,
+  assertCardBoardId,
+  assertDateLastActivityPresent,
 };
