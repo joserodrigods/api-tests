@@ -52,6 +52,3 @@ npm run cleanup:trello
 
 **Atenção:** o script usa `BOARD_ID` do `.env` e apaga todos os cards retornados pela API do Trello para esse board. Use apenas em um **board dedicado a testes**.
 
-## Variáveis de ambiente
-
-Veja `.env.example`. Não faça commit do `.env` (ele está no `.gitignore`).
