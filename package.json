@@ -8,6 +8,9 @@
     "report:html": "node scripts/generate-report.js",
     "test:report": "mkdir -p results && npm run test:json && npm run report:html",
     "test:auth": "cucumber-js --tags @auth",
+    "test:smoke": "cucumber-js --tags @smoke",
+    "test:regression": "cucumber-js --tags @regression",
+    "test:e2e": "cucumber-js --tags @e2e",
     "test:env": "bash scripts/test-env.sh"
   },
   "devDependencies": {

@@ -24,4 +24,5 @@ When('eu tentar criar um card sem autenticacao', async function () {
 
 Then('o corpo da resposta deve conter um identificador de card', function () {
   assertCardId(this.lastResponse.data);
+  this.lastCreatedId = this.lastResponse.data.id;
 });

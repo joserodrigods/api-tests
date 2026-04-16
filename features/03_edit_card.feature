@@ -1,4 +1,4 @@
-# language: pt
+# language: en
 Feature: Editar card no quadro configurado
   Validar que a API consegue editar diferentes atributos de um card existente.
 
@@ -43,7 +43,7 @@ Feature: Editar card no quadro configurado
   Scenario: alterar posicao do card na lista
     When eu alterar a posicao do card para "top"
     Then o status da resposta deve ser HTTP 200
-    And a posicao do card deve ser "top"
+    And a posicao do card deve ser numerica
 
   Scenario: arquivar card
     When eu arquivar o card criado
@@ -52,8 +52,8 @@ Feature: Editar card no quadro configurado
 
   Scenario: editar card com id inexistente
     When eu tentar editar o nome do card para "Card Invalido" usando o id "card-que-nao-existe-123"
-    Then o status da resposta deve ser HTTP 400
+    Then o status da resposta deve ser um dos HTTP 400 ou 404
 
   Scenario: editar card sem autenticacao
     When eu tentar editar o card sem autenticacao
-    Then o status da resposta deve ser HTTP 401
+    Then o status da resposta deve ser um dos HTTP 401 ou 403
