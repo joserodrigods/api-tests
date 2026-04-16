@@ -1,75 +1,57 @@
-# API BDD example
+# Exemplo de BDD para API
 
-Small **Cucumber.js** + **Axios** project for black-box checks against an HTTP API that uses query-string authentication and board-scoped resources.
+Pequeno projeto em **Cucumber.js** + **Axios** para verificações de caixa-preta em uma API HTTP que usa autenticação na query string e recursos escopados por board.
 
-This repository is intentionally generic in naming and documentation. Point `API_BASE_URL` and credentials in `.env` at whatever REST host you use for your own runs.
+Este repositório mantém nomes e documentação propositalmente genéricos. Aponte `API_BASE_URL` e as credenciais no `.env` para o host REST que você usar nas suas execuções.
 
-## Prerequisites
+## Arquitetura
 
-- Node.js (compatible with `package.json` dependencies)
-- API credentials and resource IDs configured in `.env` (see `.env.example`)
+![Visão geral das camadas do projeto](docs/architecture_overview.svg)
 
-## Setup
+## Pré-requisitos
+
+- Node.js (compatível com as dependências do `package.json`)
+- Credenciais da API e IDs de recursos configurados no `.env` (veja `.env.example`)
+
+## Configuração
 
 ```bash
 npm install
 ```
 
-Copy `.env.example` to `.env` and fill in real values.
+Copie `.env.example` para `.env` e preencha com valores reais.
 
-If you previously used older variable names in a private fork, rename them to match `.env.example` (`API_BASE_URL`, `API_KEY`, `API_TOKEN`, `BOARD_ID`, …).
+Se você já usou nomes antigos de variáveis em um fork privado, renomeie-as para bater com o `.env.example` (`API_BASE_URL`, `API_KEY`, `API_TOKEN`, `BOARD_ID`, …).
 
-## Layout
-
-```text
-.
-├── features
-│   ├── 01_authentication.feature
-│   └── 07_complete_template.feature   # reference / examples (@template, excluded from default run)
-├── helpers
-│   ├── api.js
-│   └── assertions.js
-├── step_definitions
-│   └── auth.steps.js
-├── support
-│   ├── hooks.js
-│   └── world.js
-├── scripts
-│   ├── test-env.sh
-│   └── cleanup-trello-board-cards.js   # npm run cleanup:trello — deletes all cards on BOARD_ID
-├── docs
-├── cucumber.js
-├── .env.example
-├── package.json
-└── README.md
-```
-
-## Running tests
+## Executar os testes
 
 ```bash
-# Full Cucumber suite (default profile excludes @template)
+# Suite completa do Cucumber (o perfil padrão exclui @template)
 npm test
 
-# Authentication scenarios only (@auth)
+# Apenas cenários de autenticação (@auth)
 npm run test:auth
 
-# End-to-end challenge scenario only (@e2e)
+# Apenas o cenário de desafio end-to-end (@e2e)
 npm run test:e2e
 
-# Smoke-check .env and perform sample GET requests (curl)
+# Verificação rápida do .env e GETs de exemplo (curl)
 npm run test:env
+
+# Limpar o board no Trello: remove todos os cards do BOARD_ID (use só em board de teste)
+npm run cleanup:trello
 ```
 
-## Cleaning up Trello test data
+## Limpar dados de teste no Trello
 
-If automation left many cards on the board configured in `.env`, you can remove **all** cards on that board (open and archived):
+Se a automação deixou muitos cards no board configurado no `.env`, você pode remover **todos** os cards desse board (abertos e arquivados):
 
 ```bash
 npm run cleanup:trello
 ```
 
-**Warning:** this uses `BOARD_ID` from `.env` and deletes every card returned by the Trello API for that board. Use only on a **dedicated test board**.
+**Atenção:** o script usa `BOARD_ID` do `.env` e apaga todos os cards retornados pela API do Trello para esse board. Use apenas em um **board dedicado a testes**.
 
-## Environment variables
+## Variáveis de ambiente
 
-See `.env.example`. Do not commit `.env` (it is in `.gitignore`).
+Veja `.env.example`. Não faça commit do `.env` (ele está no `.gitignore`).
