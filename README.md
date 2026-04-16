@@ -35,7 +35,8 @@ If you previously used older variable names in a private fork, rename them to ma
 │   ├── hooks.js
 │   └── world.js
 ├── scripts
-│   └── test-env.sh
+│   ├── test-env.sh
+│   └── cleanup-trello-board-cards.js   # npm run cleanup:trello — deletes all cards on BOARD_ID
 ├── docs
 ├── cucumber.js
 ├── .env.example
@@ -46,15 +47,28 @@ If you previously used older variable names in a private fork, rename them to ma
 ## Running tests
 
 ```bash
-# All scenarios (default profile excludes @template features)
+# Full Cucumber suite (default profile excludes @template)
 npm test
 
-# Auth-related scenarios only
+# Authentication scenarios only (@auth)
 npm run test:auth
+
+# End-to-end challenge scenario only (@e2e)
+npm run test:e2e
 
 # Smoke-check .env and perform sample GET requests (curl)
 npm run test:env
 ```
+
+## Cleaning up Trello test data
+
+If automation left many cards on the board configured in `.env`, you can remove **all** cards on that board (open and archived):
+
+```bash
+npm run cleanup:trello
+```
+
+**Warning:** this uses `BOARD_ID` from `.env` and deletes every card returned by the Trello API for that board. Use only on a **dedicated test board**.
 
 ## Environment variables
 

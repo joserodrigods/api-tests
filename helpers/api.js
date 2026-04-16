@@ -89,6 +89,24 @@ function createClient() {
       });
     },
 
+    async createCardWithJson(name, idList, description) {
+      if (!idList) {
+        throw new Error('Set LIST_TODO_ID in .env or pass idList');
+      }
+      if (!name) {
+        throw new Error('Card name is required');
+      }
+      const { key, token } = getAuthParams();
+      const body = { name, idList };
+      if (description !== undefined && description !== null && String(description).length > 0) {
+        body.desc = description;
+      }
+      return http.post('/cards', body, {
+        params: { key, token },
+        headers: { 'Content-Type': 'application/json' },
+      });
+    },
+
     async getBoardLabels(boardId = process.env.BOARD_ID) {
       if (!boardId) {
         throw new Error('Set BOARD_ID in .env');
