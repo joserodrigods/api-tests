@@ -24,8 +24,8 @@
       "name": "Cucumber: authentication feature",
       "program": "${workspaceFolder}/node_modules/@cucumber/cucumber/bin/cucumber.js",
       "args": [
-        "--config",
-        "cucumber.js",
+        "--profile",
+        "vscode",
         "features/01_authentication.feature"
       ],
       "cwd": "${workspaceFolder}",
@@ -42,8 +42,8 @@
       "name": "Cucumber: create card feature",
       "program": "${workspaceFolder}/node_modules/@cucumber/cucumber/bin/cucumber.js",
       "args": [
-        "--config",
-        "cucumber.js",
+        "--profile",
+        "vscode",
         "features/02_create_card.feature"
       ],
       "cwd": "${workspaceFolder}",
@@ -60,9 +60,9 @@
       "name": "Cucumber: auth scenario - valid member",
       "program": "${workspaceFolder}/node_modules/@cucumber/cucumber/bin/cucumber.js",
       "args": [
-        "--config",
-        "cucumber.js",
-        "features/01_authentication.feature:9"
+        "--profile",
+        "vscode",
+        "features/01_authentication.feature:8"
       ],
       "cwd": "${workspaceFolder}",
       "envFile": "${workspaceFolder}/.env",
@@ -78,9 +78,9 @@
       "name": "Cucumber: auth scenario - valid board",
       "program": "${workspaceFolder}/node_modules/@cucumber/cucumber/bin/cucumber.js",
       "args": [
-        "--config",
-        "cucumber.js",
-        "features/01_authentication.feature:14"
+        "--profile",
+        "vscode",
+        "features/01_authentication.feature:13"
       ],
       "cwd": "${workspaceFolder}",
       "envFile": "${workspaceFolder}/.env",
@@ -96,9 +96,9 @@
       "name": "Cucumber: auth scenario - missing api key",
       "program": "${workspaceFolder}/node_modules/@cucumber/cucumber/bin/cucumber.js",
       "args": [
-        "--config",
-        "cucumber.js",
-        "features/01_authentication.feature:19"
+        "--profile",
+        "vscode",
+        "features/01_authentication.feature:18"
       ],
       "cwd": "${workspaceFolder}",
       "envFile": "${workspaceFolder}/.env",
@@ -114,9 +114,9 @@
       "name": "Cucumber: auth scenario - invalid token",
       "program": "${workspaceFolder}/node_modules/@cucumber/cucumber/bin/cucumber.js",
       "args": [
-        "--config",
-        "cucumber.js",
-        "features/01_authentication.feature:24"
+        "--profile",
+        "vscode",
+        "features/01_authentication.feature:23"
       ],
       "cwd": "${workspaceFolder}",
       "envFile": "${workspaceFolder}/.env",
@@ -132,9 +132,9 @@
       "name": "Cucumber: create card scenario - valid data",
       "program": "${workspaceFolder}/node_modules/@cucumber/cucumber/bin/cucumber.js",
       "args": [
-        "--config",
-        "cucumber.js",
-        "features/02_create_card.feature:10"
+        "--profile",
+        "vscode",
+        "features/02_create_card.feature:9"
       ],
       "cwd": "${workspaceFolder}",
       "envFile": "${workspaceFolder}/.env",
@@ -150,9 +150,9 @@
       "name": "Cucumber: create card scenario - without name",
       "program": "${workspaceFolder}/node_modules/@cucumber/cucumber/bin/cucumber.js",
       "args": [
-        "--config",
-        "cucumber.js",
-        "features/02_create_card.feature:15"
+        "--profile",
+        "vscode",
+        "features/02_create_card.feature:14"
       ],
       "cwd": "${workspaceFolder}",
       "envFile": "${workspaceFolder}/.env",
@@ -168,9 +168,9 @@
       "name": "Cucumber: create card scenario - invalid list id",
       "program": "${workspaceFolder}/node_modules/@cucumber/cucumber/bin/cucumber.js",
       "args": [
-        "--config",
-        "cucumber.js",
-        "features/02_create_card.feature:20"
+        "--profile",
+        "vscode",
+        "features/02_create_card.feature:19"
       ],
       "cwd": "${workspaceFolder}",
       "envFile": "${workspaceFolder}/.env",
@@ -186,9 +186,9 @@
       "name": "Cucumber: create card scenario - without auth",
       "program": "${workspaceFolder}/node_modules/@cucumber/cucumber/bin/cucumber.js",
       "args": [
-        "--config",
-        "cucumber.js",
-        "features/02_create_card.feature:24"
+        "--profile",
+        "vscode",
+        "features/02_create_card.feature:23"
       ],
       "cwd": "${workspaceFolder}",
       "envFile": "${workspaceFolder}/.env",

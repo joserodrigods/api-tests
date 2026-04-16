@@ -4,4 +4,9 @@ module.exports = {
     tags: 'not @template',
     import: ['support/**/*.js', 'step_definitions/**/*.js'],
   },
+  
+  vscode: {
+    tags: 'not @template',
+    import: ['support/**/*.js', 'step_definitions/**/*.js'],
+  },
 };
