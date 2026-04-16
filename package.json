@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Example Cucumber.js + Axios harness for REST API checks",
   "scripts": {
-    "test": "cucumber-js",
+    "test": "cucumber-js --format @cucumber/pretty-formatter --format summary",
+    "test:verbose": "cucumber-js --format json:results/latest-run.json >/dev/null && node -e 'const fs=require(\"fs\"); const data=JSON.parse(fs.readFileSync(\"results/latest-run.json\",\"utf8\")); for (const f of data){ console.log(\"Feature: \" + f.name); for (const s of (f.elements||[])){ const statuses=(s.steps||[]).map(st=>st.result&&st.result.status).filter(Boolean); const status=statuses.includes(\"failed\")?\"FAILED\":statuses.includes(\"pending\")?\"PENDING\":statuses.includes(\"undefined\")?\"UNDEFINED\":\"PASSED\"; console.log(\"  - [\" + status + \"] \" + s.name);} console.log(\"\"); }'",
     "test:json": "cucumber-js --format json:results/cucumber-report.json",
     "report:html": "node scripts/generate-report.js",
     "test:report": "mkdir -p results && npm run test:json && npm run report:html",
