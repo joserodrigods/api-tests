@@ -8,7 +8,7 @@ Este repositório mantém nomes e documentação propositalmente genéricos. Apo
 
 ![Visão geral das camadas do projeto](docs/architecture_overview.svg)
 
-Em `step_definitions/`, cada `0X_….steps.js` acompanha o `0X_….feature` correspondente; o arquivo `00.shared-file.steps.js` concentra steps reutilizados (credenciais e checagem de status HTTP).
+Em `step_definitions/`, cada `0X_….steps.js` acompanha o `0X_….feature` correspondente; o arquivo `00.shared.steps.js` concentra steps reutilizados (credenciais e checagem de status HTTP).
 
 ## Pré-requisitos
 
