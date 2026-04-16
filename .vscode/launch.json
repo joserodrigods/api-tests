@@ -57,6 +57,78 @@
     {
       "type": "node",
       "request": "launch",
+      "name": "Cucumber: edit card feature",
+      "program": "${workspaceFolder}/node_modules/@cucumber/cucumber/bin/cucumber.js",
+      "args": [
+        "--profile",
+        "vscode",
+        "features/03_edit_card.feature"
+      ],
+      "cwd": "${workspaceFolder}",
+      "envFile": "${workspaceFolder}/.env",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Cucumber: delete card feature",
+      "program": "${workspaceFolder}/node_modules/@cucumber/cucumber/bin/cucumber.js",
+      "args": [
+        "--profile",
+        "vscode",
+        "features/04_delete_card.feature"
+      ],
+      "cwd": "${workspaceFolder}",
+      "envFile": "${workspaceFolder}/.env",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Cucumber: move card feature",
+      "program": "${workspaceFolder}/node_modules/@cucumber/cucumber/bin/cucumber.js",
+      "args": [
+        "--profile",
+        "vscode",
+        "features/05_move_card.feature"
+      ],
+      "cwd": "${workspaceFolder}",
+      "envFile": "${workspaceFolder}/.env",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Cucumber: e2e feature",
+      "program": "${workspaceFolder}/node_modules/@cucumber/cucumber/bin/cucumber.js",
+      "args": [
+        "--profile",
+        "vscode",
+        "features/06_e2e.feature"
+      ],
+      "cwd": "${workspaceFolder}",
+      "envFile": "${workspaceFolder}/.env",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
       "name": "Cucumber: auth scenario - valid member",
       "program": "${workspaceFolder}/node_modules/@cucumber/cucumber/bin/cucumber.js",
       "args": [
@@ -189,6 +261,366 @@
         "--profile",
         "vscode",
         "features/02_create_card.feature:23"
+      ],
+      "cwd": "${workspaceFolder}",
+      "envFile": "${workspaceFolder}/.env",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Cucumber: edit card scenario - edit name",
+      "program": "${workspaceFolder}/node_modules/@cucumber/cucumber/bin/cucumber.js",
+      "args": [
+        "--profile",
+        "vscode",
+        "features/03_edit_card.feature:12"
+      ],
+      "cwd": "${workspaceFolder}",
+      "envFile": "${workspaceFolder}/.env",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Cucumber: edit card scenario - edit description",
+      "program": "${workspaceFolder}/node_modules/@cucumber/cucumber/bin/cucumber.js",
+      "args": [
+        "--profile",
+        "vscode",
+        "features/03_edit_card.feature:17"
+      ],
+      "cwd": "${workspaceFolder}",
+      "envFile": "${workspaceFolder}/.env",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Cucumber: edit card scenario - due date",
+      "program": "${workspaceFolder}/node_modules/@cucumber/cucumber/bin/cucumber.js",
+      "args": [
+        "--profile",
+        "vscode",
+        "features/03_edit_card.feature:22"
+      ],
+      "cwd": "${workspaceFolder}",
+      "envFile": "${workspaceFolder}/.env",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Cucumber: edit card scenario - due complete",
+      "program": "${workspaceFolder}/node_modules/@cucumber/cucumber/bin/cucumber.js",
+      "args": [
+        "--profile",
+        "vscode",
+        "features/03_edit_card.feature:27"
+      ],
+      "cwd": "${workspaceFolder}",
+      "envFile": "${workspaceFolder}/.env",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Cucumber: edit card scenario - label",
+      "program": "${workspaceFolder}/node_modules/@cucumber/cucumber/bin/cucumber.js",
+      "args": [
+        "--profile",
+        "vscode",
+        "features/03_edit_card.feature:33"
+      ],
+      "cwd": "${workspaceFolder}",
+      "envFile": "${workspaceFolder}/.env",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Cucumber: edit card scenario - member",
+      "program": "${workspaceFolder}/node_modules/@cucumber/cucumber/bin/cucumber.js",
+      "args": [
+        "--profile",
+        "vscode",
+        "features/03_edit_card.feature:38"
+      ],
+      "cwd": "${workspaceFolder}",
+      "envFile": "${workspaceFolder}/.env",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Cucumber: edit card scenario - position",
+      "program": "${workspaceFolder}/node_modules/@cucumber/cucumber/bin/cucumber.js",
+      "args": [
+        "--profile",
+        "vscode",
+        "features/03_edit_card.feature:43"
+      ],
+      "cwd": "${workspaceFolder}",
+      "envFile": "${workspaceFolder}/.env",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Cucumber: edit card scenario - archive",
+      "program": "${workspaceFolder}/node_modules/@cucumber/cucumber/bin/cucumber.js",
+      "args": [
+        "--profile",
+        "vscode",
+        "features/03_edit_card.feature:48"
+      ],
+      "cwd": "${workspaceFolder}",
+      "envFile": "${workspaceFolder}/.env",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Cucumber: edit card scenario - invalid id",
+      "program": "${workspaceFolder}/node_modules/@cucumber/cucumber/bin/cucumber.js",
+      "args": [
+        "--profile",
+        "vscode",
+        "features/03_edit_card.feature:53"
+      ],
+      "cwd": "${workspaceFolder}",
+      "envFile": "${workspaceFolder}/.env",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Cucumber: edit card scenario - without auth",
+      "program": "${workspaceFolder}/node_modules/@cucumber/cucumber/bin/cucumber.js",
+      "args": [
+        "--profile",
+        "vscode",
+        "features/03_edit_card.feature:57"
+      ],
+      "cwd": "${workspaceFolder}",
+      "envFile": "${workspaceFolder}/.env",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Cucumber: delete card scenario - delete and verify",
+      "program": "${workspaceFolder}/node_modules/@cucumber/cucumber/bin/cucumber.js",
+      "args": [
+        "--profile",
+        "vscode",
+        "features/04_delete_card.feature:12"
+      ],
+      "cwd": "${workspaceFolder}",
+      "envFile": "${workspaceFolder}/.env",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Cucumber: delete card scenario - delete twice",
+      "program": "${workspaceFolder}/node_modules/@cucumber/cucumber/bin/cucumber.js",
+      "args": [
+        "--profile",
+        "vscode",
+        "features/04_delete_card.feature:19"
+      ],
+      "cwd": "${workspaceFolder}",
+      "envFile": "${workspaceFolder}/.env",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Cucumber: delete card scenario - invalid id",
+      "program": "${workspaceFolder}/node_modules/@cucumber/cucumber/bin/cucumber.js",
+      "args": [
+        "--profile",
+        "vscode",
+        "features/04_delete_card.feature:25"
+      ],
+      "cwd": "${workspaceFolder}",
+      "envFile": "${workspaceFolder}/.env",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Cucumber: delete card scenario - without auth",
+      "program": "${workspaceFolder}/node_modules/@cucumber/cucumber/bin/cucumber.js",
+      "args": [
+        "--profile",
+        "vscode",
+        "features/04_delete_card.feature:29"
+      ],
+      "cwd": "${workspaceFolder}",
+      "envFile": "${workspaceFolder}/.env",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Cucumber: move card scenario - to in progress",
+      "program": "${workspaceFolder}/node_modules/@cucumber/cucumber/bin/cucumber.js",
+      "args": [
+        "--profile",
+        "vscode",
+        "features/05_move_card.feature:13"
+      ],
+      "cwd": "${workspaceFolder}",
+      "envFile": "${workspaceFolder}/.env",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Cucumber: move card scenario - to done",
+      "program": "${workspaceFolder}/node_modules/@cucumber/cucumber/bin/cucumber.js",
+      "args": [
+        "--profile",
+        "vscode",
+        "features/05_move_card.feature:19"
+      ],
+      "cwd": "${workspaceFolder}",
+      "envFile": "${workspaceFolder}/.env",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Cucumber: move card scenario - invalid list",
+      "program": "${workspaceFolder}/node_modules/@cucumber/cucumber/bin/cucumber.js",
+      "args": [
+        "--profile",
+        "vscode",
+        "features/05_move_card.feature:27"
+      ],
+      "cwd": "${workspaceFolder}",
+      "envFile": "${workspaceFolder}/.env",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Cucumber: move card scenario - invalid card id",
+      "program": "${workspaceFolder}/node_modules/@cucumber/cucumber/bin/cucumber.js",
+      "args": [
+        "--profile",
+        "vscode",
+        "features/05_move_card.feature:31"
+      ],
+      "cwd": "${workspaceFolder}",
+      "envFile": "${workspaceFolder}/.env",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Cucumber: move card scenario - without auth",
+      "program": "${workspaceFolder}/node_modules/@cucumber/cucumber/bin/cucumber.js",
+      "args": [
+        "--profile",
+        "vscode",
+        "features/05_move_card.feature:35"
+      ],
+      "cwd": "${workspaceFolder}",
+      "envFile": "${workspaceFolder}/.env",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Cucumber: e2e scenario - full flow",
+      "program": "${workspaceFolder}/node_modules/@cucumber/cucumber/bin/cucumber.js",
+      "args": [
+        "--profile",
+        "vscode",
+        "features/06_e2e.feature:7"
       ],
       "cwd": "${workspaceFolder}",
       "envFile": "${workspaceFolder}/.env",
