@@ -1,18 +1,26 @@
 # language: en
-@auth
-Feature: Authentication for the configured HTTP API
-  Validate that credentials allow successful calls to the endpoints used by this harness.
+Feature: Autenticacao para a API HTTP configurada
+  Validar que as credenciais permitem chamadas bem-sucedidas aos endpoints usados por este projeto.
 
   Background:
-    Given credentials are configured in the environment
+    Given que as credenciais estao configuradas no ambiente
 
-  @smoke
-  Scenario: valid credentials return the authenticated member
-    When I request the authenticated member from the API
-    Then the response status should be HTTP 200
-    And the body should contain the member identifier
+  Scenario: credenciais validas retornam o membro autenticado
+    When eu solicitar o membro autenticado da API
+    Then o status da resposta deve ser HTTP 200
+    And o corpo deve conter o identificador do membro
 
-  Scenario: valid credentials allow access to the configured board
-    When I request the board configured in the environment
-    Then the response status should be HTTP 200
-    And the body should contain the board identifier
+  Scenario: credenciais validas permitem acesso ao quadro configurado
+    When eu solicitar o quadro configurado no ambiente
+    Then o status da resposta deve ser HTTP 200
+    And o corpo deve conter o identificador do quadro
+
+  Scenario: autenticacao falha sem API key
+    When eu solicitar o membro autenticado sem API key
+    Then o status da resposta deve ser HTTP 401
+    And o corpo deve conter mensagem de erro de autenticacao
+
+  Scenario: autenticacao falha com token invalido
+    When eu solicitar o membro autenticado com token invalido
+    Then o status da resposta deve ser HTTP 401
+    And o corpo deve conter mensagem de erro de autenticacao

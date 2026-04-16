@@ -18,12 +18,33 @@ function getAuthParams() {
 }
 
 function createClient() {
-  const http = axios.create({ baseURL: getApiBaseUrl() });
+  const http = axios.create({
+    baseURL: getApiBaseUrl(),
+    validateStatus() {
+      return true;
+    },
+  });
 
   return {
     async getAuthenticatedMember() {
       const { key, token } = getAuthParams();
       return http.get('/members/me', { params: { key, token } });
+    },
+
+    async getAuthenticatedMemberWithoutApiKey() {
+      const token = process.env.API_TOKEN;
+      if (!token) {
+        throw new Error('Set API_TOKEN in .env');
+      }
+      return http.get('/members/me', { params: { token } });
+    },
+
+    async getAuthenticatedMemberWithInvalidToken() {
+      const key = process.env.API_KEY;
+      if (!key) {
+        throw new Error('Set API_KEY in .env');
+      }
+      return http.get('/members/me', { params: { key, token: 'tokeninvalidoaqui123' } });
     },
 
     async getBoard(boardId = process.env.BOARD_ID) {
@@ -33,6 +54,38 @@ function createClient() {
       const { key, token } = getAuthParams();
       return http.get(`/boards/${boardId}`, {
         params: { key, token, fields: 'id,name' },
+      });
+    },
+
+    async createCard(name, listId = process.env.LIST_TODO_ID) {
+      if (!listId) {
+        throw new Error('Set LIST_TODO_ID in .env or pass listId');
+      }
+      if (!name) {
+        throw new Error('Card name is required');
+      }
+      const { key, token } = getAuthParams();
+      return http.post('/cards', null, {
+        params: { key, token, idList: listId, name },
+      });
+    },
+
+    async createCardWithoutName(listId = process.env.LIST_TODO_ID) {
+      if (!listId) {
+        throw new Error('Set LIST_TODO_ID in .env or pass listId');
+      }
+      const { key, token } = getAuthParams();
+      return http.post('/cards', null, {
+        params: { key, token, idList: listId },
+      });
+    },
+
+    async createCardWithoutAuth(name = 'Card Teste', listId = process.env.LIST_TODO_ID) {
+      if (!listId) {
+        throw new Error('Set LIST_TODO_ID in .env or pass listId');
+      }
+      return http.post('/cards', null, {
+        params: { idList: listId, name },
       });
     },
   };

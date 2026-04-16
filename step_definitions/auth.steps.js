@@ -1,9 +1,9 @@
 const assert = require('assert');
 const { Given, When, Then } = require('@cucumber/cucumber');
 const { createClient } = require('../helpers/api');
-const { assertMemberId, assertBoardId } = require('../helpers/assertions');
+const { assertMemberId, assertBoardId, assertAuthErrorMessage } = require('../helpers/assertions');
 
-Given('credentials are configured in the environment', function () {
+Given('que as credenciais estao configuradas no ambiente', function () {
   assert.ok(process.env.API_BASE_URL, 'Missing API_BASE_URL');
   assert.ok(process.env.API_KEY, 'Missing API_KEY');
   assert.ok(process.env.API_TOKEN, 'Missing API_TOKEN');
@@ -11,22 +11,34 @@ Given('credentials are configured in the environment', function () {
   this.api = createClient();
 });
 
-When('I request the authenticated member from the API', async function () {
+When('eu solicitar o membro autenticado da API', async function () {
   this.lastResponse = await this.api.getAuthenticatedMember();
 });
 
-When('I request the board configured in the environment', async function () {
+When('eu solicitar o quadro configurado no ambiente', async function () {
   this.lastResponse = await this.api.getBoard();
 });
 
-Then('the response status should be HTTP {int}', function (expectedStatus) {
+When('eu solicitar o membro autenticado sem API key', async function () {
+  this.lastResponse = await this.api.getAuthenticatedMemberWithoutApiKey();
+});
+
+When('eu solicitar o membro autenticado com token invalido', async function () {
+  this.lastResponse = await this.api.getAuthenticatedMemberWithInvalidToken();
+});
+
+Then('o status da resposta deve ser HTTP {int}', function (expectedStatus) {
   assert.strictEqual(this.lastResponse.status, expectedStatus);
 });
 
-Then('the body should contain the member identifier', function () {
+Then('o corpo deve conter o identificador do membro', function () {
   assertMemberId(this.lastResponse.data);
 });
 
-Then('the body should contain the board identifier', function () {
+Then('o corpo deve conter o identificador do quadro', function () {
   assertBoardId(this.lastResponse.data);
+});
+
+Then('o corpo deve conter mensagem de erro de autenticacao', function () {
+  assertAuthErrorMessage(this.lastResponse.data);
 });
