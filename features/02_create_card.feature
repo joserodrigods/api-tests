@@ -1,4 +1,5 @@
 # language: en
+@create
 Feature: Criar card no quadro configurado
   Validar que a API consegue criar cards na lista usada por este projeto.
 

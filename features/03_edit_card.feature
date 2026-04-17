@@ -1,4 +1,5 @@
 # language: en
+@edit
 Feature: Editar card no quadro configurado
   Validar que a API consegue editar diferentes atributos de um card existente.
 

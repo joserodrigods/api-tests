@@ -1,4 +1,5 @@
 # language: en
+@delete
 Feature: Excluir card no quadro configurado
   Validar que a API consegue excluir cards e tratar erros esperados.
 

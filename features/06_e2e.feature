@@ -1,9 +1,9 @@
 # language: en
+@e2e
 Feature: Fluxo ponta a ponta do desafio no quadro configurado
   Um unico cenario alinhado a prova pratica: autenticar na API, criar um card,
   editar esse card, excluir e confirmar que ele nao existe mais (limpeza do card criado neste fluxo).
 
-  @e2e
   Scenario: autenticar criar editar excluir e confirmar remocao do card
     Given que as credenciais estao configuradas no ambiente
     And que a lista de tarefas esta configurada no ambiente

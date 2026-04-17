@@ -1,4 +1,5 @@
 # language: en
+@auth
 Feature: Autenticacao para a API HTTP configurada
   Validar que as credenciais permitem chamadas bem-sucedidas aos endpoints usados por este projeto.
 

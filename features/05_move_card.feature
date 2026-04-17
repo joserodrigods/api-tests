@@ -1,4 +1,5 @@
 # language: en
+@move
 Feature: Transitar card entre listas do quadro configurado
   Validar que a API consegue mover um card entre listas e tratar erros esperados.
 
