@@ -25,6 +25,83 @@ function createClient() {
     },
   });
 
+  function safeJson(value) {
+    if (value === undefined) {
+      return 'undefined';
+    }
+    try {
+      return JSON.stringify(value, null, 2);
+    } catch (error) {
+      return `[unserializable: ${error.message}]`;
+    }
+  }
+
+  function maskSensitive(value) {
+    if (!value || typeof value !== 'object') {
+      return value;
+    }
+    const hiddenKeys = new Set(['key', 'token', 'apikey', 'api_key', 'authorization']);
+    if (Array.isArray(value)) {
+      return value.map(maskSensitive);
+    }
+    return Object.fromEntries(
+      Object.entries(value).map(([k, v]) => {
+        if (hiddenKeys.has(String(k).toLowerCase())) {
+          return [k, '***'];
+        }
+        if (v && typeof v === 'object') {
+          return [k, maskSensitive(v)];
+        }
+        return [k, v];
+      })
+    );
+  }
+
+  function fullUrlFromConfig(config) {
+    try {
+      return axios.getUri(config);
+    } catch (error) {
+      return `${config.baseURL || ''}${config.url || ''}`;
+    }
+  }
+
+  http.interceptors.request.use((request) => {
+    console.log(`
+===== REQUEST =====
+${String(request.method || 'GET').toUpperCase()} ${fullUrlFromConfig(request)}
+Params: ${safeJson(maskSensitive(request.params))}
+Body: ${safeJson(maskSensitive(request.data))}
+===================
+`);
+    return request;
+  });
+
+  http.interceptors.response.use(
+    (response) => {
+      console.log(`
+===== RESPONSE =====
+Status: ${response.status}
+URL: ${fullUrlFromConfig(response.config)}
+Body: ${safeJson(maskSensitive(response.data))}
+====================
+`);
+      return response;
+    },
+    (error) => {
+      const status = error?.response?.status ?? 'NO_RESPONSE';
+      const url = error?.config ? fullUrlFromConfig(error.config) : 'unknown-url';
+      const body = error?.response?.data ?? error?.message;
+      console.log(`
+===== RESPONSE ERROR =====
+Status: ${status}
+URL: ${url}
+Body: ${safeJson(maskSensitive(body))}
+==========================
+`);
+      return Promise.reject(error);
+    }
+  );
+
   return {
     async getAuthenticatedMember() {
       const { key, token } = getAuthParams();
