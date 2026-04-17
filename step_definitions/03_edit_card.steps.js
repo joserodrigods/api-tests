@@ -118,5 +118,20 @@ Then('o campo closed do card deve ser true', function () {
 
 Then('o status da resposta deve ser um dos HTTP {int} ou {int}', function (statusA, statusB) {
   const actual = this.lastResponse.status;
+  if (actual !== statusA && actual !== statusB) {
+    this.attach(
+      JSON.stringify(
+        {
+          expectedStatus: [statusA, statusB],
+          actualStatus: actual,
+          durationMs: this.lastResponse.durationMs,
+          responseBody: this.lastResponse.data,
+        },
+        null,
+        2
+      ),
+      'application/json'
+    );
+  }
   assert.ok(actual === statusA || actual === statusB, `expected status ${statusA} or ${statusB}, got ${actual}`);
 });

@@ -66,6 +66,7 @@ function createClient() {
   }
 
   http.interceptors.request.use((request) => {
+    request.metadata = { startTimeMs: Date.now() };
     console.log(`
 ===== REQUEST =====
 ${String(request.method || 'GET').toUpperCase()} ${fullUrlFromConfig(request)}
@@ -78,11 +79,16 @@ Body: ${safeJson(maskSensitive(request.data))}
 
   http.interceptors.response.use(
     (response) => {
+      const startedAt = response.config?.metadata?.startTimeMs;
+      if (typeof startedAt === 'number') {
+        response.durationMs = Date.now() - startedAt;
+      }
       console.log(`
 ===== RESPONSE =====
 Status: ${response.status}
 URL: ${fullUrlFromConfig(response.config)}
 Body: ${safeJson(maskSensitive(response.data))}
+Duration: ${response.durationMs ?? 'n/a'}ms
 ====================
 `);
       return response;
@@ -91,11 +97,17 @@ Body: ${safeJson(maskSensitive(response.data))}
       const status = error?.response?.status ?? 'NO_RESPONSE';
       const url = error?.config ? fullUrlFromConfig(error.config) : 'unknown-url';
       const body = error?.response?.data ?? error?.message;
+      const startedAt = error?.config?.metadata?.startTimeMs;
+      const durationMs = typeof startedAt === 'number' ? Date.now() - startedAt : null;
+      if (error?.response && durationMs !== null) {
+        error.response.durationMs = durationMs;
+      }
       console.log(`
 ===== RESPONSE ERROR =====
 Status: ${status}
 URL: ${url}
 Body: ${safeJson(maskSensitive(body))}
+Duration: ${durationMs ?? 'n/a'}ms
 ==========================
 `);
       return Promise.reject(error);

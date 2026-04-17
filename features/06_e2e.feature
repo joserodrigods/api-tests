@@ -1,10 +1,11 @@
 # language: en
-@e2e
+@e2e @happy-path @crud @TC-API-501
 Feature: Fluxo ponta a ponta do desafio no quadro configurado
   Um unico cenario alinhado a prova pratica: autenticar na API, criar um card,
   editar esse card, excluir e confirmar que ele nao existe mais (limpeza do card criado neste fluxo).
+  Impacto: valida o fluxo principal de negocio em ponta a ponta com rastreabilidade unica.
 
-  Scenario: autenticar criar editar excluir e confirmar remocao do card
+  Scenario: deve executar fluxo E2E de autenticacao, criacao, edicao e exclusao do card
     Given que as credenciais estao configuradas no ambiente
     And que a lista de tarefas esta configurada no ambiente
     When eu solicitar o membro autenticado da API
